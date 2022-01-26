@@ -169,7 +169,7 @@ const Modal = () => (
     <DialogContent >
       <DialogTitle>Edit profile</DialogTitle>
       <DialogDescription>
-        Make changes to your profile here. Click save when you're done.
+        Make changes to your profile here. Click save when you&lsquo;re done.
       </DialogDescription>
       <Fieldset>
         <Label htmlFor="name">Name</Label>
