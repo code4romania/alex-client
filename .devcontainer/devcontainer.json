@@ -8,31 +8,30 @@
 		// Update 'VARIANT' to pick a Node version: 16, 14, 12.
 		// Append -bullseye or -buster to pin to an OS version.
 		// Use -bullseye variants on local arm64/Apple Silicon.
-		"args": { "VARIANT": "16-bullseye" }
+		"args": {
+			"VARIANT": "18-hydrogen"
+		}
 	},
-
 	// Set *default* container specific settings.json values on container create.
 	"settings": {},
-
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-vscode-remote.remote-containers",
-        "ms-vscode-remote.remote-wsl",
+		"ms-vscode-remote.remote-wsl",
 		"dbaeumer.vscode-eslint",
 		"github.vscode-pull-request-github",
 		"eamodio.gitlens",
 		"vscode-icons-team.vscode-icons"
 	],
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000, 5000],
-
+	"forwardPorts": [
+		3000,
+		5000
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
-
 	// Bundle OpenAPI specs and run mock server based on it.
 	"postStartCommand": "swagger-cli bundle https://raw.githubusercontent.com/code4romania/alex-api/main/specs/alex-api.yml --outfile specs/alex-api-bundle.yml --type yaml && open-api-mocker -s specs/alex-api-bundle.yml -w",
-
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
 	"features": {
