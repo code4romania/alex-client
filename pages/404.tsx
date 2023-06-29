@@ -19,7 +19,10 @@ export default function Alex404() {
             >
               Go back home
             </Link>
-            <Link href="https://code4.ro" className="text-sm font-semibold text-gray-900">
+            <Link
+              href="https://code4.ro"
+              className="text-sm font-semibold text-gray-900"
+            >
               Contact support <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
