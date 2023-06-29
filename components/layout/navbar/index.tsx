@@ -8,13 +8,13 @@ import {
   Cog6ToothIcon,
   DocumentDuplicateIcon,
   FolderIcon,
-  HomeIcon,
+  Squares2X2Icon,
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+  { name: "Dashboard", href: "#", icon: Squares2X2Icon, current: true },
   { name: "Team", href: "#", icon: UsersIcon, current: false },
   { name: "Projects", href: "#", icon: FolderIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
@@ -22,10 +22,10 @@ const navigation = [
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
-const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+const grants = [
+  { id: 1, name: "Grant 1", href: "#", initial: "H", current: false },
+  { id: 2, name: "Grant 2", href: "#", initial: "T", current: false },
+  { id: 3, name: "Grant 3", href: "#", initial: "W", current: false },
 ];
 
 function classNames({ classes = [] }: { classes?: any[] } = {}) {
@@ -129,13 +129,13 @@ export default async function Navbar() {
                           Your teams
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {teams.map((team) => (
-                            <li key={team.name}>
+                          {grants.map((grant) => (
+                            <li key={grant.name}>
                               <a
-                                href={team.href}
+                                href={grant.href}
                                 className={classNames({
                                   classes: [
-                                    team.current
+                                    grant.current
                                       ? "bg-gray-800 text-white"
                                       : "text-gray-400 hover:text-white hover:bg-gray-800",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
@@ -143,9 +143,9 @@ export default async function Navbar() {
                                 })}
                               >
                                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                                  {team.initial}
+                                  {grant.initial}
                                 </span>
-                                <span className="truncate">{team.name}</span>
+                                <span className="truncate">{grant.name}</span>
                               </a>
                             </li>
                           ))}
@@ -215,13 +215,13 @@ export default async function Navbar() {
                   Your teams
                 </div>
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {teams.map((team) => (
-                    <li key={team.name}>
+                  {grants.map((grant) => (
+                    <li key={grant.name}>
                       <a
-                        href={team.href}
+                        href={grant.href}
                         className={classNames({
                           classes: [
-                            team.current
+                            grant.current
                               ? "bg-gray-800 text-white"
                               : "text-gray-400 hover:text-white hover:bg-gray-800",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
@@ -229,9 +229,9 @@ export default async function Navbar() {
                         })}
                       >
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                          {team.initial}
+                          {grant.initial}
                         </span>
-                        <span className="truncate">{team.name}</span>
+                        <span className="truncate">{grant.name}</span>
                       </a>
                     </li>
                   ))}
