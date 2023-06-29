@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Fragment, useState } from "react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   BellIcon,
@@ -13,39 +13,46 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+} from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
-]
+  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+  { name: "Team", href: "#", icon: UsersIcon, current: false },
+  { name: "Projects", href: "#", icon: FolderIcon, current: false },
+  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
+  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+];
 const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-]
+  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
+  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+];
 const userNavigation = [
-  { name: 'Your profile', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+  { name: "Your profile", href: "#" },
+  { name: "Sign out", href: "#" },
+];
 
 function classNames({ classes = [] }: { classes?: any[] } = {}) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Home() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
+          <Dialog
+            as="div"
+            className="relative z-50 lg:hidden"
+            onClose={setSidebarOpen}
+          >
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -79,9 +86,16 @@ export default function Home() {
                     leaveTo="opacity-0"
                   >
                     <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                      <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
+                      <button
+                        type="button"
+                        className="-m-2.5 p-2.5"
+                        onClick={() => setSidebarOpen(false)}
+                      >
                         <span className="sr-only">Close sidebar</span>
-                        <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                        <XMarkIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </Transition.Child>
@@ -102,15 +116,19 @@ export default function Home() {
                               <li key={item.name}>
                                 <a
                                   href={item.href}
-                                  className={classNames(
-                                    {
-                                      classes: [item.current
-                                        ? 'bg-gray-800 text-white'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-800',
-                                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']
-                                    }                                  )}
+                                  className={classNames({
+                                    classes: [
+                                      item.current
+                                        ? "bg-gray-800 text-white"
+                                        : "text-gray-400 hover:text-white hover:bg-gray-800",
+                                      "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                                    ],
+                                  })}
                                 >
-                                  <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                                  <item.icon
+                                    className="h-6 w-6 shrink-0"
+                                    aria-hidden="true"
+                                  />
                                   {item.name}
                                 </a>
                               </li>
@@ -118,19 +136,22 @@ export default function Home() {
                           </ul>
                         </li>
                         <li>
-                          <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+                          <div className="text-xs font-semibold leading-6 text-gray-400">
+                            Your teams
+                          </div>
                           <ul role="list" className="-mx-2 mt-2 space-y-1">
                             {teams.map((team) => (
                               <li key={team.name}>
                                 <a
                                   href={team.href}
-                                  className={classNames(
-                                    {
-                                      classes: [team.current
-                                        ? 'bg-gray-800 text-white'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-800',
-                                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']
-                                    }                                  )}
+                                  className={classNames({
+                                    classes: [
+                                      team.current
+                                        ? "bg-gray-800 text-white"
+                                        : "text-gray-400 hover:text-white hover:bg-gray-800",
+                                      "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                                    ],
+                                  })}
                                 >
                                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
                                     {team.initial}
@@ -146,7 +167,10 @@ export default function Home() {
                             href="#"
                             className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
                           >
-                            <Cog6ToothIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                            <Cog6ToothIcon
+                              className="h-6 w-6 shrink-0"
+                              aria-hidden="true"
+                            />
                             Settings
                           </a>
                         </li>
@@ -178,15 +202,19 @@ export default function Home() {
                       <li key={item.name}>
                         <a
                           href={item.href}
-                          className={classNames(
-                            {
-                              classes: [item.current
-                                ? 'bg-gray-800 text-white'
-                                : 'text-gray-400 hover:text-white hover:bg-gray-800',
-                                'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']
-                            }                          )}
+                          className={classNames({
+                            classes: [
+                              item.current
+                                ? "bg-gray-800 text-white"
+                                : "text-gray-400 hover:text-white hover:bg-gray-800",
+                              "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                            ],
+                          })}
                         >
-                          <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                          <item.icon
+                            className="h-6 w-6 shrink-0"
+                            aria-hidden="true"
+                          />
                           {item.name}
                         </a>
                       </li>
@@ -194,19 +222,22 @@ export default function Home() {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+                  <div className="text-xs font-semibold leading-6 text-gray-400">
+                    Your teams
+                  </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {teams.map((team) => (
                       <li key={team.name}>
                         <a
                           href={team.href}
-                          className={classNames(
-                            {
-                              classes: [team.current
-                                ? 'bg-gray-800 text-white'
-                                : 'text-gray-400 hover:text-white hover:bg-gray-800',
-                                'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']
-                            }                          )}
+                          className={classNames({
+                            classes: [
+                              team.current
+                                ? "bg-gray-800 text-white"
+                                : "text-gray-400 hover:text-white hover:bg-gray-800",
+                              "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                            ],
+                          })}
                         >
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
                             {team.initial}
@@ -222,7 +253,10 @@ export default function Home() {
                     href="#"
                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
                   >
-                    <Cog6ToothIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                    <Cog6ToothIcon
+                      className="h-6 w-6 shrink-0"
+                      aria-hidden="true"
+                    />
                     Settings
                   </a>
                 </li>
@@ -233,13 +267,20 @@ export default function Home() {
 
         <div className="lg:pl-72">
           <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-            <button type="button" className="-m-2.5 p-2.5 text-gray-700 lg:hidden" onClick={() => setSidebarOpen(true)}>
+            <button
+              type="button"
+              className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+              onClick={() => setSidebarOpen(true)}
+            >
               <span className="sr-only">Open sidebar</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
 
             {/* Separator */}
-            <div className="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
+            <div
+              className="h-6 w-px bg-gray-900/10 lg:hidden"
+              aria-hidden="true"
+            />
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <form className="relative flex flex-1" action="#" method="GET">
@@ -259,13 +300,19 @@ export default function Home() {
                 />
               </form>
               <div className="flex items-center gap-x-4 lg:gap-x-6">
-                <button type="button" className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500">
+                <button
+                  type="button"
+                  className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
+                >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Separator */}
-                <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10" aria-hidden="true" />
+                <div
+                  className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10"
+                  aria-hidden="true"
+                />
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
@@ -277,10 +324,16 @@ export default function Home() {
                       alt=""
                     />
                     <span className="hidden lg:flex lg:items-center">
-                      <span className="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
+                      <span
+                        className="ml-4 text-sm font-semibold leading-6 text-gray-900"
+                        aria-hidden="true"
+                      >
                         Tom Cook
                       </span>
-                      <ChevronDownIcon className="ml-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <ChevronDownIcon
+                        className="ml-2 h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
                     </span>
                   </Menu.Button>
                   <Transition
@@ -298,11 +351,12 @@ export default function Home() {
                           {({ active }) => (
                             <a
                               href={item.href}
-                              className={classNames(
-                                {
-                                  classes: [active ? 'bg-gray-50' : '',
-                                    'block px-3 py-1 text-sm leading-6 text-gray-900']
-                                }                              )}
+                              className={classNames({
+                                classes: [
+                                  active ? "bg-gray-50" : "",
+                                  "block px-3 py-1 text-sm leading-6 text-gray-900",
+                                ],
+                              })}
                             >
                               {item.name}
                             </a>
@@ -322,5 +376,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  )
+  );
 }
