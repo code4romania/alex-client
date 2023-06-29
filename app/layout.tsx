@@ -1,5 +1,7 @@
 import "./globals.css";
 import Head from "next/head";
+import Navbar from "../components/layout/navbar";
+import Navheader from "../components/layout/navheader";
 
 export const metadata = {
   title: "ALEX",
@@ -16,7 +18,18 @@ export default function RootLayout({
       <Head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
-      <body className="h-full">{children}</body>
+      <body className="h-full">
+        <div>
+          <Navbar />
+          <div className="lg:pl-72">
+            <Navheader />
+            <main className="py-10">
+              {/* Content is placed here */}
+              <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+            </main>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
