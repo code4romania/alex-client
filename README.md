@@ -43,11 +43,5 @@ Then build, tag and push image with the following:
 ```bash
 docker buildx build \
     --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
-    -t apphouse.azurecr.io/lacramioa.re:latest . --push
-```
-
-Check images using:
-
-```bash
-az acr repository show-manifests --name apphouse --repository lacramioa.re
+    -t alex-client:latest . --push
 ```
