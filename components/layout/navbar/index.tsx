@@ -3,29 +3,36 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
-  CalendarIcon,
-  ChartPieIcon,
+  ArrowLeftCircleIcon,
+  ArrowsRightLeftIcon,
+  CircleStackIcon,
+  ClipboardDocumentCheckIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
+  ScaleIcon,
   Squares2X2Icon,
-  UsersIcon,
+  SunIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { InboxStackIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: Squares2X2Icon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-];
-
-const grants = [
-  { id: 1, name: "Grant 1", href: "#", initial: "H", current: false },
-  { id: 2, name: "Grant 2", href: "#", initial: "T", current: false },
-  { id: 3, name: "Grant 3", href: "#", initial: "W", current: false },
+  { name: "Organization Profile", href: "#", icon: SunIcon, current: false },
+  {
+    name: "Account Statements",
+    href: "#",
+    icon: ArrowsRightLeftIcon,
+    current: false,
+  },
+  { name: "Grants", href: "#", icon: ScaleIcon, current: false },
+  { name: "Sponsors", href: "#", icon: CircleStackIcon, current: false },
+  {
+    name: "Reports",
+    href: "#",
+    icon: ClipboardDocumentCheckIcon,
+    current: false,
+  },
+  { name: "Action History", href: "#", icon: InboxStackIcon, current: false },
 ];
 
 function classNames({ classes = [] }: { classes?: any[] } = {}) {
@@ -124,43 +131,17 @@ export default async function Navbar() {
                           ))}
                         </ul>
                       </li>
-                      <li>
-                        <div className="text-xs font-semibold leading-6 text-gray-400">
-                          Your teams
-                        </div>
-                        <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {grants.map((grant) => (
-                            <li key={grant.name}>
-                              <a
-                                href={grant.href}
-                                className={classNames({
-                                  classes: [
-                                    grant.current
-                                      ? "bg-gray-800 text-white"
-                                      : "text-gray-400 hover:text-white hover:bg-gray-800",
-                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                                  ],
-                                })}
-                              >
-                                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                                  {grant.initial}
-                                </span>
-                                <span className="truncate">{grant.name}</span>
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
                       <li className="mt-auto">
                         <a
                           href="#"
                           className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
                         >
-                          <Cog6ToothIcon
+                          <ArrowLeftCircleIcon
                             className="h-6 w-6 shrink-0"
                             aria-hidden="true"
+                            onClick={() => setSidebarOpen(false)}
                           />
-                          Settings
+                          Close Menu
                         </a>
                       </li>
                     </ul>
@@ -210,43 +191,17 @@ export default async function Navbar() {
                   ))}
                 </ul>
               </li>
-              <li>
-                <div className="text-xs font-semibold leading-6 text-gray-400">
-                  Your teams
-                </div>
-                <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {grants.map((grant) => (
-                    <li key={grant.name}>
-                      <a
-                        href={grant.href}
-                        className={classNames({
-                          classes: [
-                            grant.current
-                              ? "bg-gray-800 text-white"
-                              : "text-gray-400 hover:text-white hover:bg-gray-800",
-                            "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
-                          ],
-                        })}
-                      >
-                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                          {grant.initial}
-                        </span>
-                        <span className="truncate">{grant.name}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
               <li className="mt-auto">
                 <a
                   href="#"
                   className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
                 >
-                  <Cog6ToothIcon
+                  <ArrowLeftCircleIcon
                     className="h-6 w-6 shrink-0"
                     aria-hidden="true"
+                    onClick={() => setSidebarOpen(false)}
                   />
-                  Settings
+                  Close Menu
                 </a>
               </li>
             </ul>
