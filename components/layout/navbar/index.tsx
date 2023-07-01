@@ -16,23 +16,55 @@ import {
 import { InboxStackIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: Squares2X2Icon, current: true },
-  { name: "Organization Profile", href: "#", icon: SunIcon, current: false },
+  {
+    name: "Dashboard",
+    href: "#",
+    icon: Squares2X2Icon,
+    current: false,
+    isAppInitialized: false,
+  },
+  {
+    name: "Organization Profile",
+    href: "#",
+    icon: SunIcon,
+    current: true,
+    isAppInitialized: false,
+  },
   {
     name: "Account Statements",
     href: "#",
     icon: ArrowsRightLeftIcon,
     current: false,
+    isAppInitialized: false,
   },
-  { name: "Grants", href: "#", icon: ScaleIcon, current: false },
-  { name: "Sponsors", href: "#", icon: CircleStackIcon, current: false },
+  {
+    name: "Grants",
+    href: "#",
+    icon: ScaleIcon,
+    current: false,
+    isAppInitialized: false,
+  },
+  {
+    name: "Sponsors",
+    href: "#",
+    icon: CircleStackIcon,
+    current: false,
+    isAppInitialized: false,
+  },
   {
     name: "Reports",
     href: "#",
     icon: ClipboardDocumentCheckIcon,
     current: false,
+    isAppInitialized: false,
   },
-  { name: "Action History", href: "#", icon: InboxStackIcon, current: false },
+  {
+    name: "Action History",
+    href: "#",
+    icon: InboxStackIcon,
+    current: false,
+    isAppInitialized: false,
+  },
 ];
 
 function classNames({ classes = [] }: { classes?: any[] } = {}) {
@@ -115,8 +147,11 @@ export default async function Navbar() {
                                 className={classNames({
                                   classes: [
                                     item.current
-                                      ? "bg-gray-800 text-white"
-                                      : "text-gray-400 hover:text-white hover:bg-gray-800",
+                                      ? "bg-teal-950 text-lime-500"
+                                      : item.isAppInitialized
+                                        ? "text-slate-50 hover:text-white hover:bg-gray-800"
+                                        : "text-gray-500 hover:text-white hover:bg-gray-800",
+
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
                                   ],
                                 })}
@@ -175,8 +210,10 @@ export default async function Navbar() {
                         className={classNames({
                           classes: [
                             item.current
-                              ? "bg-gray-800 text-white"
-                              : "text-gray-400 hover:text-white hover:bg-gray-800",
+                              ? "bg-teal-950 text-lime-500"
+                              : item.isAppInitialized
+                                ? "text-slate-50 hover:text-white hover:bg-gray-800"
+                                : "text-gray-500 hover:text-white hover:bg-gray-800",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
                           ],
                         })}
