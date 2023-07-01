@@ -38,8 +38,7 @@ just start _Docker_ and the container associated with the image. Then:
 docker buildx ls
 ```
 
-Then build, tag and push image (must be logged in and have container
-registry setup) with the following:
+Then build, tag and push image with the following:
 
 ```bash
 docker buildx build \
