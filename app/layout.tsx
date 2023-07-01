@@ -23,9 +23,9 @@ export default function RootLayout({
           <Navbar />
           <div className="lg:pl-72">
             <Navheader />
-            <main className="py-10">
+            <main className="py-5">
               {/* Content is placed here */}
-              <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+              <div className="px-4 sm:px-2 lg:px-5">{children}</div>
             </main>
           </div>
         </div>
