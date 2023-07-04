@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ALEX-CLIENT
 
-## Getting Started
+## Dev Getting Started
 
 First, run the development server:
 
@@ -8,27 +8,40 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
+# or
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
+with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/page.tsx`.
+The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization)
+to automatically optimize and load Inter, a custom Google Font.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Docker Image Build
 
-## Learn More
+First, configure `buildx`
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker buildx create --name builder
+docker buildx use builder
+docker buildx inspect --bootstrap
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Or, if you already have an existing `buildx` image,
+just start _Docker_ and the container associated with the image. Then:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+docker buildx ls
+```
 
-## Deploy on Vercel
+Then build, tag and push image with the following:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+docker buildx build \
+    --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
+    -t alex-client:latest . --push
+```
